@@ -8,8 +8,8 @@ public class Delivery : MonoBehaviour
     [SerializeField] bool isPackagePickedUp = false;
     [SerializeField] float timePackageGotRemoved = 0.5f;
 
-    [SerializeField] Color32 driverColorHavePackage = new Color32(0, 1, 1, 1);
-    [SerializeField] Color32 driverColorDontHavePackage = new Color32(1, 1, 1, 1);
+    [SerializeField] Color32 driverColorWithPackage = new Color32(0, 1, 1, 1);
+    [SerializeField] Color32 driverColorWithoutPackage = new Color32(1, 1, 1, 1);
 
     SpriteRenderer spriteRenderer;
 
@@ -33,7 +33,7 @@ public class Delivery : MonoBehaviour
 
             Destroy(colliderObject.gameObject, timePackageGotRemoved);
 
-            spriteRenderer.color = driverColorHavePackage;
+            spriteRenderer.color = driverColorWithPackage;
         }
         else if (colliderObject.CompareTag("Customer") && isPackagePickedUp == true)
         {
@@ -41,7 +41,7 @@ public class Delivery : MonoBehaviour
 
             Debug.Log("Delivered package !");
 
-            spriteRenderer.color = driverColorDontHavePackage;
+            spriteRenderer.color = driverColorWithoutPackage;
         }
     }
 }
